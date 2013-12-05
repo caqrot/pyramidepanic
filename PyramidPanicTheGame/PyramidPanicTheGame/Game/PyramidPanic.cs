@@ -21,8 +21,12 @@ namespace PyramidPanic
 
         //Maak een variabele aan van het type startScene
         private StartScene startScene;
+        //Maak een variabele aan van het type playScene
         private PlayScene playScene;
+        //Maak een variabele aan van het type helpScene
         private HelpScene helpScene;
+        //Maak een variabele aan van het type gameOverScene
+        private GameOverScene gameOverScene;
 
         public PyramidPanic()
         {
@@ -58,6 +62,7 @@ namespace PyramidPanic
             this.startScene = new StartScene(this);
             this.playScene = new PlayScene(this);
             this.helpScene = new HelpScene(this);
+            this.gameOverScene = new GameOverScene(this);
 
  
         }
