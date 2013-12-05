@@ -14,10 +14,15 @@ namespace PyramidPanic
 
     public class PyramidPanic : Microsoft.Xna.Framework.Game
     {
-        //fields, de velden van deze class
+        //Fields, de velden van deze class
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private KeyboardState ks, oldks;
+
+        //Maak een variabele aan van het type startScene
+        private StartScene startScene;
+        private PlayScene playScene;
+        private HelpScene helpScene;
 
         public PyramidPanic()
         {
@@ -31,16 +36,16 @@ namespace PyramidPanic
 
         protected override void Initialize()
         {
-            // Veranderd de titel van het canvas
+            //Veranderd de titel van het canvas
             this.Window.Title = "Pyramid Panic";
 
-            // Verandered de breedte van het canvas
+            //Verandered de breedte van het canvas
             this.graphics.PreferredBackBufferWidth = 640;
 
-            // Veranderd de hoogte van het canvas
+            //Veranderd de hoogte van het canvas
             this.graphics.PreferredBackBufferHeight = 480;
 
-            // Past de veranderingen bretffende canvas toe
+            //Past de veranderingen bretffende canvas toe
             this.graphics.ApplyChanges();
             base.Initialize();
         }
@@ -49,6 +54,12 @@ namespace PyramidPanic
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            //
+            this.startScene = new StartScene(this);
+            this.playScene = new PlayScene(this);
+            this.helpScene = new HelpScene(this);
+
+ 
         }
 
         protected override void UnloadContent()
@@ -67,6 +78,8 @@ namespace PyramidPanic
 
             this.ks = Keyboard.GetState();
 
+            //Roep de Update(gametime) method aan van het startScene-object
+            this.playScene.Update(gameTime);
             this.oldks = this.ks;
             base.Update(gameTime);
         }
@@ -74,6 +87,15 @@ namespace PyramidPanic
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            //Roep de Begin() method aan van het spriteBatch-object
+            this.spriteBatch.Begin();
+
+            //Roep de Draw(gameTime) method aan van het startScene-object
+            this.playScene.Draw(gameTime);
+
+            //Roep de End() method aan van het spriteBatch-object
+            this.spriteBatch.End();
 
             base.Draw(gameTime);
         }
