@@ -9,16 +9,15 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-
 namespace PyramidPanic
 {
-    public class StartScene : IGameState
+    public class GameEndScene : IGameState
     {
         //Fields
         private PyramidPanic game;
 
         //Constructor
-        public StartScene(PyramidPanic game)
+        public GameEndScene(PyramidPanic game)
         {
             this.game = game;
             this.Initialize();
@@ -43,14 +42,14 @@ namespace PyramidPanic
         {
             if (Input.EdgeDetectKeyDown(Keys.Right))
             {
-                this.game.GameState = this.game.PlayScene;
+                this.game.GameState = this.game.StartScene;
             }
         }
 
         //Draw
         public void Draw(GameTime gameTime)
         {
-            this.game.GraphicsDevice.Clear(Color.Red);
+            this.game.GraphicsDevice.Clear(Color.DarkOliveGreen);
         }
     }
 }

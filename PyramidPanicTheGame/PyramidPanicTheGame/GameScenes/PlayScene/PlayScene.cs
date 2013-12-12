@@ -11,37 +11,46 @@ using Microsoft.Xna.Framework.Media;
 
 namespace PyramidPanic
 {
-    public class PlayScene
+    public class PlayScene : IGameState
     {
         //Fields
         private PyramidPanic game;
 
-        //Contructor
+        //Constructor
         public PlayScene(PyramidPanic game)
         {
             this.game = game;
             this.Initialize();
         }
+
         //Initialize
-        public  void Initialize()
+        public void Initialize()
         {
             this.LoadContent();
         }
-        //Loadcontent
+
+
+        //LoadContent
         public void LoadContent()
         {
 
         }
+
+
         //Update
         public void Update(GameTime gameTime)
         {
-
+            if (Input.EdgeDetectKeyDown(Keys.Right))
+            {
+                this.game.GameState = this.game.HelpScene;
+            }
         }
+
         //Draw
-        public void Draw (GameTime gameTime)
+        public void Draw(GameTime gameTime)
         {
             this.game.GraphicsDevice.Clear(Color.Blue);
         }
+
     }
 }
-
