@@ -47,7 +47,7 @@ namespace PyramidPanic
             this.background = new Image(this.game, @"StartScene\Background", Vector2.Zero);
 
             // Maak een object aan van het type Image
-            this.title = new Image(this.game, @"StartScene\Title", new Vector2(100f, 30f));
+            this.title = new Image(this.game, @"StartScene\Title", new Vector2(100f, 20f));
 
             this.menu = new Menu(this.game);
         }
@@ -56,10 +56,8 @@ namespace PyramidPanic
         //Update
         public void Update(GameTime gameTime)
         {
-            if (Input.EdgeDetectKeyDown(Keys.Right))
-            {
-                this.game.GameState = this.game.PlayScene;
-            }
+            // Roep de Update(gameTime) methode aan van het this.menu object
+            this.menu.Update(gameTime);
         }
 
         //Draw
