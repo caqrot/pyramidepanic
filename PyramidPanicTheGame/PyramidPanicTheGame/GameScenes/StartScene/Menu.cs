@@ -90,7 +90,7 @@ namespace PyramidPanic
             {
                 if (Input.EdgedetectMousePressLeft())
                 {
-                    this.game.GameState = this.game.HelpScene;
+                    this.game.GameState = this.game.ToetsScene;
                 }
                 this.buttonState = Button.Help;
                 this.ChangeButtonColorToNormal();
@@ -135,6 +135,8 @@ namespace PyramidPanic
                 this.buttonState = Button.Scores;
                 this.ChangeButtonColorToNormal();
             }
+
+
 
 
             // Als de right knop wordt ingedrukt....

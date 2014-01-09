@@ -115,10 +115,11 @@
     <Compile Include="GameScenes\QuitScene\QuitScene.cs" />
     <Compile Include="GameScenes\ScoreScene\ScoreScene.cs" />
     <Compile Include="GameScenes\StartScene\Menu.cs" />
+    <Compile Include="GameScenes\ToestScene\ToetsScene.cs" />
     <Compile Include="Game\IGameState.cs" />
     <Compile Include="GameScenes\PlayScene\PlayScene.cs" />
     <Compile Include="GameScenes\StartScene\StartScene.cs" />
-    <Compile Include="HelperClasses\Image.cs" />
+    <Compile Include="GameScenes\HelperClasses\Image.cs" />
     <Compile Include="Input\Input.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Game\Program.cs" />
