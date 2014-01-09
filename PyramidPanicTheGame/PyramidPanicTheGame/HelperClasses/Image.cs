@@ -13,64 +13,52 @@ namespace PyramidPanic
 {
     public class Image
     {
-        #region Fields
-        /* fields zijn private en zijn alleen beschikbaar binnen de class. Ze worden ook wel
-         * class variables genoemd*/
-
-        /* Met een Texture2D kun je een plaatje zichtbaar maken. Is eigenlijk een soort houten
-         * bord waar je een poster op kunt plakken
-         */
+        //Fields
+        // Maak een variabele (reference) aan van het type Texture2D met de naam texture
         private Texture2D texture;
 
-        /* De rectangle gebruiken we voor collisiondetection 
-         */
-        private Rectangle rectangle;
-
-        // De game instantie wordt als field geregistreerd
-        private PyramidPanic game;
-
-        // We maken een variabele van het type Color en geven het de standaardwaarde Color.White
+        // Maak een variabele (reference) aan van het type Color met de naam color
         private Color color = Color.White;
 
-        #endregion
+        //Maak een rectangle voor het detecteren van collisions
+        private Rectangle rectangle;
+
+        // Maak een variabele aan om de game instantie in op te slaan.
+        private PyramidPanic game;
 
         #region Properties
+        // Maak een property voor het color field
         public Color Color
         {
+            get { return this.color; }
             set { this.color = value; }
+        }
+
+        // Maak een property voor het rectangle field
+        public Rectangle Rectangle
+        {
+            get { return this.rectangle; }
         }
         #endregion
 
-        #region Constructor
-        /* Dit is de constructor van de Image class. Hij is meestal public, heeft
-         * dezelfde naam als de class en heeft geen returntype.
-         */
-
+        //Constructor
         public Image(PyramidPanic game, string pathNameAsset, Vector2 position)
         {
-            // Geef de het game object mee aan het field this.game
             this.game = game;
             this.texture = game.Content.Load<Texture2D>(pathNameAsset);
             this.rectangle = new Rectangle((int)position.X,
                                            (int)position.Y,
                                            this.texture.Width,
                                            this.texture.Height);
-
         }
-        #endregion
 
+        //Update
 
-        #region Update
-
-        #endregion
-
-
-        #region Draw
+        //Draw
         public void Draw(GameTime gameTime)
         {
             this.game.SpriteBatch.Draw(this.texture, this.rectangle, this.color);
         }
-        #endregion
-
+        //Helper Methods
     }
 }

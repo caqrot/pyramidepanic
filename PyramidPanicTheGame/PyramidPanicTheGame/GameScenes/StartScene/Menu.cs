@@ -83,8 +83,60 @@ namespace PyramidPanic
         #endregion
 
         #region Update
+
         public void Update(GameTime gameTime)
         {
+            if (this.helpButton.Rectangle.Intersects(Input.MouseRect()))
+            {
+                if (Input.EdgedetectMousePressLeft())
+                {
+                    this.game.GameState = this.game.HelpScene;
+                }
+                this.buttonState = Button.Help;
+                this.ChangeButtonColorToNormal();
+            }
+
+            if (this.startButton.Rectangle.Intersects(Input.MouseRect()))
+            {
+                if (Input.EdgedetectMousePressLeft())
+                {
+                    this.game.GameState = this.game.PlayScene;
+                }
+                this.buttonState = Button.Start;
+                this.ChangeButtonColorToNormal();
+            }
+
+            if (this.loadButton.Rectangle.Intersects(Input.MouseRect()))
+            {
+                if (Input.EdgedetectMousePressLeft())
+                {
+                    this.game.GameState = this.game.LoadScene;
+                }
+                this.buttonState = Button.Load;
+                this.ChangeButtonColorToNormal();
+            }
+
+            if (this.quitButton.Rectangle.Intersects(Input.MouseRect()))
+            {
+                if (Input.EdgedetectMousePressLeft())
+                {
+                    this.game.GameState = this.game.QuitScene;
+                }
+                this.buttonState = Button.Quit;
+                this.ChangeButtonColorToNormal();
+            }
+
+            if (this.scoresButton.Rectangle.Intersects(Input.MouseRect()))
+            {
+                if (Input.EdgedetectMousePressLeft())
+                {
+                    this.game.GameState = this.game.ScoreScene;
+                }
+                this.buttonState = Button.Scores;
+                this.ChangeButtonColorToNormal();
+            }
+
+
             // Als de right knop wordt ingedrukt....
             if (Input.EdgeDetectKeyDown(Keys.Right))
             {
@@ -170,5 +222,29 @@ namespace PyramidPanic
             }
         }
         #endregion
+
+        private void ChangeButtonColorToNormal()
+        {
+            foreach (Image image in this.buttonList)
+            {
+                image.Color = Color.White;
+            }
+        }
+
+        //ffefw
+        private void MakeButtonActiveByMouse(Image button, IGameState scene, Button buttonState)
+        {
+
+            if (button.Rectangle.Intersects(Input.MouseRect()))
+            {
+                if (Input.EdgedetectMousePressLeft())
+                {
+                    this.game.GameState = scene;
+                }
+                this.buttonState = buttonState;
+                this.ChangeButtonColorToNormal();
+            }
+
+        }
     }
 }

@@ -35,7 +35,7 @@ namespace PyramidPanic
         private HelpScene helpScene; // Camelcase notatie
 
         // Maak een variabele aan van het type HelpScene
-        private Scoresscene scoreScene; // Camelcase notatie
+        private ScoreScene scoreScene; // Camelcase notatie
 
         //Maak een variabele van het typ QuitScene
         private QuitScene quitScene; //Camelcase notatie
@@ -82,9 +82,9 @@ namespace PyramidPanic
             get { return this.helpScene; }
         }
 
-        public Scoresscene Scoresscene
+        public ScoreScene ScoreScene
         {
-            get { return this.scoresscene; }
+            get { return this.scoreScene; }
         }
 
         public QuitScene QuitScene
@@ -157,7 +157,7 @@ namespace PyramidPanic
             this.helpScene = new HelpScene(this);
 
             // Maak een instantie aan van de class ScoreScene
-            this.scoreScene = new Scoresscene(this);
+            this.scoreScene = new ScoreScene(this);
 
             // Maak een instantie aan van de class QuitScene en ken deze toe aan this.quitScene
             this.quitScene = new QuitScene(this);

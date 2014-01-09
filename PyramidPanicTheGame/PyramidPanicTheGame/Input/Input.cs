@@ -54,7 +54,9 @@ namespace PyramidPanic
 
         public static Rectangle MouseRect()
         {
-
+            mouseRect.X = ms.X;
+            mouseRect.Y = ms.Y;
+            return mouseRect;
         }
     }
 }

@@ -11,13 +11,13 @@ using Microsoft.Xna.Framework.Media;
 
 namespace PyramidPanic
 {
-    public class Scoresscene : IGameState
+    public class ScoreScene : IGameState
     {
         //Fields
         private PyramidPanic game;
 
         //Constructor
-        public Scoresscene(PyramidPanic game)
+        public ScoreScene(PyramidPanic game)
         {
             this.game = game;
             this.Initialize();
