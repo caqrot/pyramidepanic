@@ -24,7 +24,7 @@ namespace PyramidPanic
         private Button buttonState = Button.Start;
 
         // Definieer een kleur van de actieve knop
-        private Color activeColor = Color.Gold;
+        private Color activeColor = Color.PeachPuff;
 
         // game bevat de PyramidPanic instantie doorgegeven als argument aan de constructor
         private PyramidPanic game;
@@ -85,27 +85,34 @@ namespace PyramidPanic
         #region Update
         public void Update(GameTime gameTime)
         {
+            // Als de right knop wordt ingedrukt....
             if (Input.EdgeDetectKeyDown(Keys.Right))
             {
+                // en de buttonState is kleiner dan Button.quit
                 if (this.buttonState < Button.Quit)
                 {
+                    // Zet alle knopkleuren op wit
                     foreach (Image button in this.buttonList)
                     {
                         button.Color = Color.White;
                     }
+                    // Verhoog de buttonState met 1
                     this.buttonState++;
                 }
             }
 
-
+            // Als de links knop wordt ingedrukt
             if (Input.EdgeDetectKeyDown(Keys.Left))
             {
+                // Als de buttonState groter is dan Button.Start
                 if (this.buttonState > Button.Start)
                 {
+                    // Maak alle knopkleuren wit
                     foreach (Image button in this.buttonList)
                     {
                         button.Color = Color.White;
                     }
+                    // Verlaag de buttonState met 1
                     this.buttonState--;
                 }
             }
@@ -116,18 +123,38 @@ namespace PyramidPanic
             {
                 case Button.Start:
                     this.startButton.Color = this.activeColor;
+                    if (Input.EdgeDetectKeyDown(Keys.Enter))
+                    {
+                        this.game.GameState = this.game.PlayScene;
+                    }
                     break;
                 case Button.Load:
                     this.loadButton.Color = this.activeColor;
+                    if (Input.EdgeDetectKeyDown(Keys.Enter))
+                    {
+                        this.game.GameState = this.game.LoadScene;
+                    }
                     break;
                 case Button.Help:
                     this.helpButton.Color = this.activeColor;
+                    if (Input.EdgeDetectKeyDown(Keys.Enter))
+                    {
+                        this.game.GameState = this.game.HelpScene;
+                    }
                     break;
                 case Button.Scores:
                     this.scoresButton.Color = this.activeColor;
+                    if (Input.EdgeDetectKeyDown(Keys.Enter))
+                    {
+                        this.game.GameState = this.game.ScoreScene;
+                    }
                     break;
                 case Button.Quit:
                     this.quitButton.Color = this.activeColor;
+                    if (Input.EdgeDetectKeyDown(Keys.Enter))
+                    {
+                        this.game.GameState = this.game.QuitScene;
+                    }
                     break;
             }
         }

@@ -18,17 +18,24 @@ namespace PyramidPanic
         private static MouseState ms, oms;
         private static GamePadState gps, ogps;
 
+        // Maak een rectangle voor de muiscursor
+        private static Rectangle mouseRect;
+
         //Constructor van een static class mag geen excesmodifier (private, public, protected)
         //krijgen.
         static Input()
         {
             ks = Keyboard.GetState();
+            ms = Mouse.GetState();
+            mouseRect = new Rectangle(ms.X, ms.Y, 1, 1);
         }
 
         public static void Update()
         {
             oks = ks;
+            oms = ms;
             ks = Keyboard.GetState();
+            ms = Mouse.GetState();
         }
 
 
@@ -38,5 +45,16 @@ namespace PyramidPanic
             return (ks.IsKeyDown(key) && oks.IsKeyUp(key));
         }
 
+        // Dit is de edgedetector voor de linkermuisknop. Als deze knop in de huidige update
+        // ingedrukt is en de vorige update niet, dan geeft de method true terug.
+        public static bool EdgedetectMousePressLeft()
+        {
+            return ((ms.LeftButton == ButtonState.Pressed) && (oms.LeftButton == ButtonState.Released));
+        }
+
+        public static Rectangle MouseRect()
+        {
+
+        }
     }
 }

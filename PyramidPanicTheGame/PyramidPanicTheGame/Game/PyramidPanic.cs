@@ -24,6 +24,9 @@ namespace PyramidPanic
         // Maak een variabele aan van het type PlayScene
         private PlayScene playScene; // Camelcase notatie
 
+        // Maak een variabele aan van het type LoadScene
+        private LoadScene loadScene; // Camelcase notatie
+
         // Maak een variabele aan van het type GameOverScene
         private GameOverScene gameOverScene; // Camelcase notatie
 
@@ -31,11 +34,14 @@ namespace PyramidPanic
         // Maak een variabele aan van het type HelpScene
         private HelpScene helpScene; // Camelcase notatie
 
+        // Maak een variabele aan van het type HelpScene
+        private Scoresscene scoreScene; // Camelcase notatie
+
+        //Maak een variabele van het typ QuitScene
+        private QuitScene quitScene; //Camelcase notatie
+
         // Maak een variabele aan van het type GameEndScene
         private GameEndScene gameEndScene; // Camelcase notatie
-
-        // Maak een variabele aan van het type ScoresScene
-        private ScoresScene scoresScene; // Camelcase notatie
 
         /* De variabele die alle verschillende Scene-objecten kan bevatten is van het type 
          * IGameState. Dit is geen class, maar een nieuw objecttype Interface
@@ -60,6 +66,12 @@ namespace PyramidPanic
             get { return this.playScene; }
         }
 
+        public LoadScene LoadScene
+        {
+            get { return this.loadScene; }
+        }
+
+
         public GameOverScene GameOverScene
         {
             get { return this.gameOverScene; }
@@ -70,14 +82,19 @@ namespace PyramidPanic
             get { return this.helpScene; }
         }
 
+        public Scoresscene Scoresscene
+        {
+            get { return this.scoresscene; }
+        }
+
+        public QuitScene QuitScene
+        {
+            get { return this.quitScene; }
+        }
+
         public GameEndScene GameEndScene
         {
             get { return this.gameEndScene; }
-        }
-
-        public ScoresScene ScoresScene
-        {
-            get { return this.scoresScene; }
         }
 
         /* Hoe maak je een property voor een private field?
@@ -127,6 +144,9 @@ namespace PyramidPanic
             // Maak een instantie aan van de class StartScene
             this.startScene = new StartScene(this);
 
+            // Maak een instantie aan van de class LoadScene
+            this.loadScene = new LoadScene(this);
+
             // Maak een instantie aan van de class StartScene
             this.playScene = new PlayScene(this);
 
@@ -136,11 +156,14 @@ namespace PyramidPanic
             // Maak een instantie aan van de class HelpScene
             this.helpScene = new HelpScene(this);
 
+            // Maak een instantie aan van de class ScoreScene
+            this.scoreScene = new Scoresscene(this);
+
+            // Maak een instantie aan van de class QuitScene en ken deze toe aan this.quitScene
+            this.quitScene = new QuitScene(this);
+
             // Maak een instantie aan van de class GameEndScene
             this.gameEndScene = new GameEndScene(this);
-
-            // Maak een instantie aan van de class ScoresScene
-            this.scoresScene = new ScoresScene(this);
 
             this.gameState = this.startScene;
         }
