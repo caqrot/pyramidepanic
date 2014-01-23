@@ -167,7 +167,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Scorpion.png">
+    <Compile Include="PlayScene\Scorpion.png">
       <Name>Scorpion</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>

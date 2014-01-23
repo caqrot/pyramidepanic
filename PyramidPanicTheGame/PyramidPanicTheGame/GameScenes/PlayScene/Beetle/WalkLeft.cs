@@ -12,35 +12,36 @@ using Microsoft.Xna.Framework.Media;
 namespace PyramidPanic
 {
     // Dit is de toestands class van de Beetle    
-    public class WalkUp : AnimatedSprite, IEntityState
+    public class WalkLeft : AnimatedSprite, IEntityState
     {
         // Fields
-        private Beetle beetle;
+        private Scorpion scorpion;
         private Vector2 velocity;
 
         // Constructor van deze toestands class krijgt altijd het object mee
         // van de hoofdclass Beetle als argument
-        public WalkUp(Beetle beetle)
-            : base(beetle)
+        public WalkLeft(Scorpion scorpion)
+            : base(scorpion)
         {
-            this.beetle = beetle;
-            this.velocity = new Vector2(0f, this.beetle.Speed);
+            this.scorpion = scorpion;
         }
 
         public void Initialize()
         {
-            this.destinationRect.X = (int)this.beetle.Position.X;
-            this.destinationRect.Y = (int)this.beetle.Position.Y;
+            this.destinationRect.X = (int)this.scorpion.Position.X;
+            this.destinationRect.Y = (int)this.scorpion.Position.Y;
+            this.effect = SpriteEffects.FlipHorizontally;
+            this.velocity = new Vector2(this.scorpion.Speed, 0f);
         }
 
         public new void Update(GameTime gameTime)
         {
-            if (this.beetle.Position.Y < 0)
+            if (this.scorpion.Position.X < 0)
             {
-                this.beetle.State = this.beetle.WalkDown;
-                this.beetle.WalkDown.Initialize();
+                this.scorpion.State = this.scorpion.WalkRight;
+                this.scorpion.WalkRight.Initialize();
             }
-            this.beetle.Position -= this.velocity;
+            this.scorpion.Position -= this.velocity;
             base.Update(gameTime);
         }
 

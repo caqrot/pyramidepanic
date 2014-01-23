@@ -16,7 +16,6 @@ Content\overlay.xnb
 Content\Panel.xnb
 Content\Potion.xnb
 Content\Scarab.xnb
-Content\Scorpion.xnb
 Content\Transparant.xnb
 Content\Treasure1.xnb
 Content\Treasure2.xnb
@@ -31,3 +30,4 @@ Content\StartScene\Button_load.xnb
 Content\StartScene\Button_quit.xnb
 Content\StartScene\Button_scores.xnb
 Content\PlayScene\Beetle.xnb
+Content\PlayScene\Scorpion.xnb
