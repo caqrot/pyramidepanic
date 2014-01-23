@@ -20,6 +20,7 @@ namespace PyramidPanic
         private IEntityState state;
         private Texture2D texture;
         private ExplorerIdle idle;
+        private ExplorerWalkRight walkRight;
 
         // Properties
         public Vector2 Position
@@ -47,6 +48,10 @@ namespace PyramidPanic
         public ExplorerIdle Idle
         {
          get { return this.idle; }
+        }
+        public ExplorerWalkRight ExplorerwalkRight
+        {
+            get { return walkRight; }
         }
 
 

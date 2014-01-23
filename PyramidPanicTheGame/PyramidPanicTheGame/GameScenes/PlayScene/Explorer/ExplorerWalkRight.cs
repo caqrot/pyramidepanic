@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 namespace PyramidPanic
 {
     // Dit is de toestands class van de Beetle    
-    public class ExplorerIdle : AnimatedSprite, IEntityState
+    public class ExplorerWalkRight : AnimatedSprite, IEntityState
     {
         // Fields
         private Explorer explorer;
@@ -21,7 +21,7 @@ namespace PyramidPanic
 
         // Constructor van deze toestands class krijgt altijd het object mee
         // van de hoofdclass Explorer als argument
-        public ExplorerIdle(Explorer explorer) : base(explorer)
+        public ExplorerWalkRight(Explorer explorer) : base(explorer)
         {
             this.explorer = explorer;
             this.velocity = new Vector2(this.explorer.Speed, 0f);
@@ -40,7 +40,7 @@ namespace PyramidPanic
 
         public new void Update(GameTime gameTime)
         {
-            
+            this.explorer.Position += this.velocity;
         }
 
         public new void Draw(GameTime gameTime)
