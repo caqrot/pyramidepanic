@@ -112,7 +112,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Explorer.png">
+    <Compile Include="PlayScene\Explorer.png">
       <Name>Explorer</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>

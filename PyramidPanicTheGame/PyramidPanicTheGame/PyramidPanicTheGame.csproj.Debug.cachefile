@@ -5,7 +5,6 @@ Content\Block_hor.xnb
 Content\Block_vert.xnb
 Content\CollisionText.xnb
 Content\Door.xnb
-Content\Explorer.xnb
 Content\explorer_down.xnb
 Content\expvierkant.xnb
 Content\Help.xnb
@@ -31,3 +30,4 @@ Content\StartScene\Button_quit.xnb
 Content\StartScene\Button_scores.xnb
 Content\PlayScene\Beetle.xnb
 Content\PlayScene\Scorpion.xnb
+Content\PlayScene\Explorer.xnb
