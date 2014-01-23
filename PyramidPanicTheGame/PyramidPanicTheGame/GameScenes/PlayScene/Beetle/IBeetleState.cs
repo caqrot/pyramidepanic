@@ -9,9 +9,15 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace PyramidPanic.GameScenes.PlayScene.Beetle
+namespace PyramidPanic
 {
-    interface IBeetleState
+    public interface IBeetleState
     {
+        /* Elke toestandsclass van de Beetle past de interface IBeetleState toe (implementeren)
+         * Deze interface eist dan van deze toestandsclass dat hij een Update en een Draw method heeft
+         */
+
+        void Update(GameTime gameTime);
+        void Draw(GameTime gameTime);
     }
 }
