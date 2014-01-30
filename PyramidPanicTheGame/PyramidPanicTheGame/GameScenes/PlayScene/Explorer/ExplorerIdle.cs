@@ -55,6 +55,12 @@ namespace PyramidPanic
                 this.explorer.State = this.explorer.WalkLeft;
                 this.explorer.WalkLeft.Initialize();
             }
+            if (Input.LevelDetectKeyDown(Keys.Down))
+            {
+                this.explorer.State = this.explorer.WalkDown;
+                this.explorer.WalkDown.Initialize();
+            }
+            
         }
 
         public new void Draw(GameTime gameTime)
