@@ -44,6 +44,7 @@ namespace PyramidPanic
             {
                 this.explorer.State = this.explorer.Idle;
                 this.explorer.Idle.Initialize();
+                this.explorer.Idle.Rotation = (float)Math.PI / 2;
             }
 
             this.explorer.Position += this.velocity;

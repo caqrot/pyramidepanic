@@ -29,6 +29,7 @@ namespace PyramidPanic
             this.effect = SpriteEffects.None;
             this.imageNumber = 1;
             this.sourceRect = new Rectangle(this.imageNumber * 32, 0, 32, 32);
+            this.rotation = (float)Math.PI / 2;
         }
 
         public void Initialize()
@@ -44,6 +45,7 @@ namespace PyramidPanic
             {
                 this.explorer.State = this.explorer.Idle;
                 this.explorer.Idle.Initialize();
+                this.explorer.Idle.Rotation = (float)Math.PI / 2;
             }
 
             this.explorer.Position -= this.velocity;

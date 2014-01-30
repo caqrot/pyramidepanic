@@ -24,6 +24,11 @@ namespace PyramidPanic
             set { this.effect = value; }
         }
 
+        public float Rotation
+        {
+            set { this.rotation = value; }
+        }
+
         // Constructor van deze toestands class krijgt altijd het object mee
         // van de hoofdclass Explorer als argument
         public ExplorerIdle(Explorer explorer)
