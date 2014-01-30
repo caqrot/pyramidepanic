@@ -20,6 +20,7 @@ namespace PyramidPanic
         private float timer = 0f;
         protected int imageNumber = 0;
         protected float rotation = 0f;
+        private Vector2 pivot;
 
 
         // Constructor

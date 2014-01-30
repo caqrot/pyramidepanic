@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 namespace PyramidPanic
 {
     // Dit is de toestands class van de Explorer    
-    public class ExplorerWalkdown : AnimatedSprite, IEntityState
+    public class ExplorerWalkDown : AnimatedSprite, IEntityState
     {
         // Fields
         private Explorer explorer;
@@ -21,14 +21,12 @@ namespace PyramidPanic
 
         // Constructor van deze toestands class krijgt altijd het object mee
         // van de hoofdclass Explorer als argument
-        public ExplorerWalkdown(Explorer explorer)
+        public ExplorerWalkDown(Explorer explorer)
             : base(explorer)
         {
             this.explorer = explorer;
-            this.velocity = new Vector2(0f,this.explorer.Speed);
+            this.velocity = new Vector2(0f, this.explorer.Speed);
             this.effect = SpriteEffects.None;
-            this.imageNumber = 1;
-            this.sourceRect = new Rectangle(this.imageNumber * 32, 0, 32, 32);
             this.rotation = (float)Math.PI / 2;
         }
 
@@ -48,7 +46,7 @@ namespace PyramidPanic
                 this.explorer.Idle.Rotation = (float)Math.PI / 2;
             }
 
-            this.explorer.Position -= this.velocity;
+            this.explorer.Position += this.velocity;
             this.destinationRect.X = (int)this.explorer.Position.X;
             this.destinationRect.Y = (int)this.explorer.Position.Y;
 
