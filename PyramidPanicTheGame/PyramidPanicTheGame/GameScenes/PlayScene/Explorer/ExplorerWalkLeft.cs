@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 namespace PyramidPanic
 {
     // Dit is de toestands class van de Explorer    
-    public class ExplorerWalkRight : AnimatedSprite, IEntityState
+    public class ExplorerWalkLeft : AnimatedSprite, IEntityState
     {
         // Fields
         private Explorer explorer;
@@ -21,32 +21,30 @@ namespace PyramidPanic
 
         // Constructor van deze toestands class krijgt altijd het object mee
         // van de hoofdclass Explorer als argument
-        public ExplorerWalkRight(Explorer explorer)
+        public ExplorerWalkLeft(Explorer explorer)
             : base(explorer)
         {
             this.explorer = explorer;
             this.velocity = new Vector2(this.explorer.Speed, 0f);
-            this.effect = SpriteEffects.None;
-            this.imageNumber = 1;
-            this.sourceRect = new Rectangle(this.imageNumber * 32, 0, 32, 32);
+            this.effect = SpriteEffects.FlipHorizontally;
         }
 
         public void Initialize()
         {
             this.destinationRect.X = (int)this.explorer.Position.X;
             this.destinationRect.Y = (int)this.explorer.Position.Y;
-            this.effect = SpriteEffects.None;
         }
 
         public new void Update(GameTime gameTime)
         {
-            if (Input.LevelDetectKeyUp(Keys.Right))
+            if (Input.LevelDetectKeyUp(Keys.Left))
             {
                 this.explorer.State = this.explorer.Idle;
                 this.explorer.Idle.Initialize();
+                this.explorer.Idle.Effect = SpriteEffects.FlipHorizontally;
             }
 
-            this.explorer.Position += this.velocity;
+            this.explorer.Position -= this.velocity;
             this.destinationRect.X = (int)this.explorer.Position.X;
             this.destinationRect.Y = (int)this.explorer.Position.Y;
 

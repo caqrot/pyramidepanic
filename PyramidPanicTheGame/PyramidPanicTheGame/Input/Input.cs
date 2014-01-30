@@ -52,6 +52,16 @@ namespace PyramidPanic
             return ((ms.LeftButton == ButtonState.Pressed) && (oms.LeftButton == ButtonState.Released));
         }
 
+        public static bool LevelDetectKeyDown(Keys key)
+        {
+            return ks.IsKeyDown(key);
+        }
+
+        public static bool LevelDetectKeyUp(Keys key)
+        {
+            return ks.IsKeyUp(key);
+        }
+
         public static Rectangle MouseRect()
         {
             mouseRect.X = ms.X;

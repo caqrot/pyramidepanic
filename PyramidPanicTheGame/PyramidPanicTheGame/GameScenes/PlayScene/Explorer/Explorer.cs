@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 namespace PyramidPanic
 {
     public class Explorer : IAnimatedSprite
-      {
+    {
         // Fields
         private Vector2 position;
         private int speed = 2;
@@ -21,6 +21,7 @@ namespace PyramidPanic
         private Texture2D texture;
         private ExplorerIdle idle;
         private ExplorerWalkRight walkRight;
+        private ExplorerWalkLeft walkLeft;
 
         // Properties
         public Vector2 Position
@@ -47,11 +48,15 @@ namespace PyramidPanic
         }
         public ExplorerIdle Idle
         {
-         get { return this.idle; }
+            get { return this.idle; }
         }
-        public ExplorerWalkRight ExplorerwalkRight
+        public ExplorerWalkRight WalkRight
         {
-            get { return walkRight; }
+            get { return this.walkRight; }
+        }
+        public ExplorerWalkLeft WalkLeft
+        {
+            get { return this.walkLeft; }
         }
 
 
@@ -63,6 +68,8 @@ namespace PyramidPanic
             this.speed = speed;
             this.texture = this.game.Content.Load<Texture2D>(@"PlayScene\Explorer");
             this.idle = new ExplorerIdle(this);
+            this.walkRight = new ExplorerWalkRight(this);
+            this.walkLeft = new ExplorerWalkLeft(this);
             this.state = this.idle;
         }
 
@@ -77,5 +84,3 @@ namespace PyramidPanic
         }
     }
 }
-   
-
