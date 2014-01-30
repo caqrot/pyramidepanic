@@ -22,6 +22,12 @@ namespace PyramidPanic
         protected float rotation = 0f;
         private Vector2 pivot;
 
+        //properties
+        public float Rotation
+        {
+            set { this.rotation = value; }
+        }
+
 
         // Constructor
         public AnimatedSprite(IAnimatedSprite iAnimatedSprite)
@@ -32,6 +38,7 @@ namespace PyramidPanic
                                                  32,
                                                  32);
             this.sourceRect = new Rectangle(this.imageNumber * 32, 0, 32, 32);
+            this.pivot = new Vector2(16f, 16f);
         }
 
         public void Update(GameTime gameTime)
@@ -64,8 +71,8 @@ namespace PyramidPanic
                                               this.destinationRect,
                                               this.sourceRect,
                                               Color.White,
-                                              (float)Math.PI/2,
-                                              Vector2.Zero,
+                                              this.rotation,
+                                              this.pivot,
                                               this.effect,
                                               0f);
         }

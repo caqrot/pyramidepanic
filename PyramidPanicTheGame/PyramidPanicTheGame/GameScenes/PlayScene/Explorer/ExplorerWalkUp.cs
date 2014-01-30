@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 namespace PyramidPanic
 {
     // Dit is de toestands class van de Explorer    
-    public class ExplorerWalkDown : AnimatedSprite, IEntityState
+    public class ExplorerWalkUp : AnimatedSprite, IEntityState
     {
         // Fields
         private Explorer explorer;
@@ -21,46 +21,43 @@ namespace PyramidPanic
 
         // Constructor van deze toestands class krijgt altijd het object mee
         // van de hoofdclass Explorer als argument
-        public ExplorerWalkDown(Explorer explorer)
+        public ExplorerWalkUp(Explorer explorer)
             : base(explorer)
         {
             this.explorer = explorer;
             this.velocity = new Vector2(0f, this.explorer.Speed);
-            this.effect = SpriteEffects.None;
+            this.effect = SpriteEffects.FlipHorizontally;
+            this.imageNumber = 1;
+            this.sourceRect = new Rectangle(this.imageNumber * 32, 0, 32, 32);
             this.rotation = (float)Math.PI / 2;
         }
-
         public void Initialize()
         {
             this.destinationRect.X = (int)this.explorer.Position.X;
             this.destinationRect.Y = (int)this.explorer.Position.Y;
-            this.effect = SpriteEffects.None;
         }
-
         public new void Update(GameTime gameTime)
         {
-            this.explorer.Position += this.velocity;
+            this.explorer.Position -= this.velocity;
             this.destinationRect.X = (int)this.explorer.Position.X;
             this.destinationRect.Y = (int)this.explorer.Position.Y;
+          
+                if (this.explorer.Position.Y < 16)
+                {
+                    this.explorer.Position += this.velocity;
+                    this.explorer.State = this.explorer.IdleWalk;
+                    this.explorer.IdleWalk.Initialize();
+                    this.explorer.IdleWalk.Effect = SpriteEffects.FlipHorizontally;
+                    this.explorer.IdleWalk.Rotation = (float)Math.PI / 2;
+                }
 
 
-            if (this.explorer.Position.Y > 480 - 16)
-            {
-                this.explorer.Position -= this.velocity;
-                this.explorer.State = this.explorer.IdleWalk;
-                this.explorer.IdleWalk.Initialize();
-                this.explorer.IdleWalk.Effect = SpriteEffects.None;
-                this.explorer.IdleWalk.Rotation = (float)Math.PI / 2;
-
-            }
-
-
-            if (Input.LevelDetectKeyUp(Keys.Down))
+            if (Input.LevelDetectKeyUp(Keys.Up))
             {
                 this.explorer.State = this.explorer.Idle;
                 this.explorer.Idle.Initialize();
-                this.explorer.Idle.Rotation = (float)Math.PI / 2;
-                this.explorer.IdleWalk.Effect = SpriteEffects.None;
+                this.explorer.Idle.Rotation = (float)Math.PI / 2 + (float)Math.PI;
+                this.explorer.Idle.Effect = SpriteEffects.None;
             }
 
 

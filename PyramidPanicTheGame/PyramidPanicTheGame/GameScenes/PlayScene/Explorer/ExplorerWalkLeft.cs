@@ -37,6 +37,21 @@ namespace PyramidPanic
 
         public new void Update(GameTime gameTime)
         {
+            this.explorer.Position -= this.velocity;
+            this.destinationRect.X = (int)this.explorer.Position.X;
+            this.destinationRect.Y = (int)this.explorer.Position.Y;
+
+
+            if (this.explorer.Position.X < 16)
+            {
+                this.explorer.Position += this.velocity;
+                this.explorer.State = this.explorer.IdleWalk;
+                this.explorer.IdleWalk.Initialize();
+                this.explorer.IdleWalk.Effect = SpriteEffects.FlipHorizontally;
+                this.explorer.IdleWalk.Rotation = 0f;
+
+            }
+
             if (Input.LevelDetectKeyUp(Keys.Left))
             {
                 this.explorer.State = this.explorer.Idle;
@@ -45,9 +60,6 @@ namespace PyramidPanic
                 this.explorer.Idle.Rotation = 0f;
             }
 
-            this.explorer.Position -= this.velocity;
-            this.destinationRect.X = (int)this.explorer.Position.X;
-            this.destinationRect.Y = (int)this.explorer.Position.Y;
 
             // Zorgt voor de animatie 
             base.Update(gameTime);
