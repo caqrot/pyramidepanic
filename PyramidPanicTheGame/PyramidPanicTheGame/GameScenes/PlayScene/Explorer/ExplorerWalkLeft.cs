@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+// Dit is explorerwalkleft
+
 namespace PyramidPanic
 {
     // Dit is de toestands class van de Explorer    

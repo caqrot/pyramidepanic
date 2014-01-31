@@ -18,7 +18,7 @@ namespace PyramidPanic
         private Explorer explorer;
         private Vector2 velocity;
 
-        //properties
+        //nog een paar properties
         public SpriteEffects Effect
         {
             set { this.effect = value; }
