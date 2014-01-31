@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+//http://nl.wikipedia.org/wiki/Scorpion_(Mortal_Kombat)
+
 namespace PyramidPanic
 {
     public class Scorpion : IAnimatedSprite
