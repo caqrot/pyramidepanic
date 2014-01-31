@@ -57,7 +57,7 @@ namespace PyramidPanic
         }
 
 
-        // Maak de constructor
+        // goede constructor
         public Scorpion(PyramidPanic game, Vector2 position, int speed)
         {
             this.position = position;
