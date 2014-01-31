@@ -26,7 +26,7 @@ namespace PyramidPanic
         private ExplorerIdleWalk idleWalk;
         private ExplorerWalkUp walkUp;
 
-        // Properties
+        // heel veel Properties
         public Vector2 Position
         {
             get { return this.position; }
@@ -78,7 +78,7 @@ namespace PyramidPanic
         }
 
 
-        // Maak de constructor
+        // Dit is de contructor, ik vind deze contructor mooi, dit is mijn constructor
         public Explorer(PyramidPanic game, Vector2 position, int speed)
         {
             this.position = position;

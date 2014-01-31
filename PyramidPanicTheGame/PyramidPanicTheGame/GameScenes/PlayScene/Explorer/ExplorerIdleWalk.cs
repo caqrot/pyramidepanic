@@ -47,7 +47,7 @@ namespace PyramidPanic
             this.destinationRect.Y = (int)this.explorer.Position.Y;
   
         }
-
+        // welke knoppen wat doen
         public new void Update(GameTime gameTime)
         {
             if (Input.EdgeDetectKeyUp(Keys.Right))
@@ -57,7 +57,7 @@ namespace PyramidPanic
                 this.explorer.Idle.Rotation = 0f;
                 this.explorer.Idle.Effect = SpriteEffects.None;
             }
-            if (Input.EdgeDetectKeyDown(Keys.Left))
+            if (Input.EdgeDetectKeyUp(Keys.Left))
             {
                 this.explorer.State = this.explorer.Idle;
                 this.explorer.Idle.Initialize();
@@ -69,9 +69,9 @@ namespace PyramidPanic
                 this.explorer.State = this.explorer.Idle;
                 this.explorer.Idle.Initialize();
                 this.explorer.Idle.Rotation = (float)Math.PI / 2;
-                this.explorer.Idle.Effect = SpriteEffects.FlipHorizontally;
+                this.explorer.Idle.Effect = SpriteEffects.None;
             }
-            if (Input.EdgeDetectKeyDown(Keys.Up))
+            if (Input.EdgeDetectKeyUp(Keys.Up))
             {
                 this.explorer.State = this.explorer.Idle;
                 this.explorer.Idle.Initialize();
