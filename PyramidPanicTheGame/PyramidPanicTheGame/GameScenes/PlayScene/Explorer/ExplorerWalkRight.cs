@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+// Dit is explorerwalkright
+
 namespace PyramidPanic
 {
     // Dit is de toestands class van de Explorer    
@@ -37,6 +39,8 @@ namespace PyramidPanic
             this.destinationRect.Y = (int)this.explorer.Position.Y;
             this.effect = SpriteEffects.None;
         }
+
+        //GameUpdate method
 
         public new void Update(GameTime gameTime)
         {
