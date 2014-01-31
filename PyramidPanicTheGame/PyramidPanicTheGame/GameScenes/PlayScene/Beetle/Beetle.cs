@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+//http://nl.wikipedia.org/wiki/Volkswagen_New_Beetle
+
 namespace PyramidPanic
 {
     public class Beetle : IAnimatedSprite
